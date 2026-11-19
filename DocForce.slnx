@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="DocForce.Application/DocForce.Application.csproj" />
+  <Project Path="DocForce.Domain/DocForce.Domain.csproj" />
+  <Project Path="DocForce.Infrastructure/DocForce.Infrastructure.csproj" />
+  <Project Path="DocForce/DocForce.API.csproj" />
+</Solution>
