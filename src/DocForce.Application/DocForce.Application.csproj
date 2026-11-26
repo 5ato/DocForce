@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DocForce.Share\DocForce.Share.csproj" />
+    <ProjectReference Include="..\DocForce.Share\DocForce.Share.csproj" />
     <ProjectReference Include="..\DocForce.Domain\DocForce.Domain.csproj" />
   </ItemGroup>
 
