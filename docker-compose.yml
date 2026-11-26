@@ -1,0 +1,26 @@
+version: "3.5"
+services:
+  doc_force:
+    dockerfile: ./dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgresql:
+        condition: service_healthy
+  
+  postgresql:
+    image: postgres:19-alpine
+    environment:
+      - POSTGRES_DB=doc_db
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=mypassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myuser -d doc_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data

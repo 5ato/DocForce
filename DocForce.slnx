@@ -1,6 +1,7 @@
 <Solution>
-  <Project Path="DocForce.Application/DocForce.Application.csproj" />
-  <Project Path="DocForce.Domain/DocForce.Domain.csproj" />
-  <Project Path="DocForce.Infrastructure/DocForce.Infrastructure.csproj" />
-  <Project Path="DocForce/DocForce.API.csproj" />
+  <Project Path="DocForce.Share/DocForce.Share.csproj" Id="6f66545d-24c5-45ab-a284-485c49593693" />
+  <Project Path="src/DocForce.Application/DocForce.Application.csproj" />
+  <Project Path="src/DocForce.Domain/DocForce.Domain.csproj" />
+  <Project Path="src/DocForce.Infrastructure/DocForce.Infrastructure.csproj" />
+  <Project Path="src/DocForce/DocForce.API.csproj" />
 </Solution>
