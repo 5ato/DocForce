@@ -10,6 +10,12 @@ public class ApplicationContext : DbContext
 {
     #region Domain Entities
     public DbSet<User> Users => Set<User>();
+    public DbSet<Community> Communities => Set<Community>();
+    public DbSet<Member> Members => Set<Member>();
+    public DbSet<Role> Roles => Set<Role>();
+    public DbSet<MemberRole> MemberRoles => Set<MemberRole>();
+    public DbSet<Permission> Permissions => Set<Permission>();
+    public DbSet<PermissionRole> PermissionRoles => Set<PermissionRole>();
     public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
     #endregion
 

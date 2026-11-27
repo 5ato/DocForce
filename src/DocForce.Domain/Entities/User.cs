@@ -4,10 +4,12 @@ namespace DocForce.Domain.Entities;
 
 public class User : BaseAuditableEntity
 {
-    public string Username { get; set; } = string.Empty;
-    public string PasswordHash { get; set; } = string.Empty;
+    public string Username { get; } = string.Empty;
+    public string PasswordHash { get; } = string.Empty;
 
-    public IList<RefreshToken> RefreshTokens { get; set; } = [];
+    public IList<RefreshToken> RefreshTokens { get; } = [];
+    public IList<Community> OwnedCommunities { get; } = [];
+    public IList<Member> Memberships { get; } = [];
 
     private User() { }
     public User(string username, string passwordHash)
@@ -16,8 +18,5 @@ public class User : BaseAuditableEntity
 
         Username = username;
         PasswordHash = passwordHash;
-
-        UpdatedAt = DateTime.UtcNow;
-        CreatedAt = DateTime.UtcNow;
     }
 }

@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi;
 using Scalar.AspNetCore;
 using Serilog;
+using Serilog.Enrichers.Span;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -57,6 +57,8 @@ builder.Services.AddAuthorization();
 
 Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
+    .Enrich.WithSpan()
+    .Enrich.WithMachineName()
     .WriteTo.Console()
     .CreateLogger();
 

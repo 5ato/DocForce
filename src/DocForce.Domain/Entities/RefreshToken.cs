@@ -19,7 +19,6 @@ public class RefreshToken : BaseAuditableEntity
         Token = token;
         ExpiresAt = expiresAt;
         UserId = userId;
-
         IsRevoked = false;
     }
 
