@@ -1,6 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace DocForce.Domain.Common;
+﻿namespace DocForce.Domain.Common;
 
 public class Result
 {

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
+using Scalar.AspNetCore;
 using Serilog;
 using System.Text;
 
@@ -18,30 +19,9 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(configuration);
 
 
-#region swagger
+#region openApi
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(opt =>
-{
-    opt.SwaggerDoc("v1", new OpenApiInfo { Title = "DocForce.API", Version = "V1" });
-
-    opt.AddSecurityDefinition("bearer", new OpenApiSecurityScheme
-    {
-        Description = "Input JWT Token",
-        Name = "Authorization",
-        Type = SecuritySchemeType.Http,
-        Scheme = "bearer",
-        BearerFormat = "JWT",
-        In = ParameterLocation.Header
-    });
-
-    opt.AddSecurityRequirement(document => new OpenApiSecurityRequirement
-    {
-        [
-            new OpenApiSecuritySchemeReference("bearer", document)
-        ] = []
-    });
-});
+builder.Services.AddOpenApi();
 
 #endregion
 
@@ -103,8 +83,8 @@ var app = builder.Build();
 
 app.UseHsts();
 app.UseMiddleware<LoggingMiddleware>();
-app.UseSwagger();
-app.UseSwaggerUI();
+app.MapOpenApi();
+app.MapScalarApiReference();
 
 app.UseHttpsRedirection();
 app.UseCors();
